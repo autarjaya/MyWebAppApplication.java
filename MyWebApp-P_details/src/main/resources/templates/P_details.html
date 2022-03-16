@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="w3-top"><br>
+    <button class="w3-btn w3-rectangular w3-blue w3-ripple" >
+        <a th:href="@{users}" style="text-decoration: none">Terug naar de vorige pagina  </a>
+    </button>
+</div><br>
+
+<div class="container-fluid text-center">
+    <div> <h2 style="font-family:'Lucida Handwriting'">Meer Info over Patiënten</h2></div>
+    <br>
+    <div class="m-2">
+        <a class="h3" th:href="@{/P_details/new}">Nieuwe info patiënt toevoegen</a>
+    </div>
+    </div>
+<div>
+    <input class="form-control" id="myInput" type="text" placeholder="Zoeken ...">
+
+    <br>
+   <table class="table table-bordered">
+       <thead class="thead-dark">
+       <tr>
+           <th></th>
+           <th>Naam</th>
+           <th>P_id</th>
+           <th>Bezocht op</th>
+           <th>Reden bezoek</th>
+           <th>Voorgeschreven</th>
+           <th></th>
+       </tr>
+       </thead>
+       <tbody id="Patient_Details">
+       <th:block th:each="p_details : ${listP_details}">
+           <tr>
+               <td>[[${p_details.id}]]</td>
+               <td>[[${p_details.naam}]]</td>
+               <td>[[${p_details.p_id}]]</td>
+               <td>[[${p_details.date}]]</td>
+               <td>[[${p_details.sickness}]]</td>
+               <td>[[${p_details.medicine}]]</td>
+               <td>
+
+                   <a class="h4 mr-3" th:href="@{'/P_details/edit/' + ${p_details.id}}">Bewerken</a><!--Edit en delete nog niet klaar-->
+                   <a class="h4"  th:href="@{'/P_details/delete/' + ${p_details.id}}">Verwijderen</a>
+               </td>
+           </tr>
+       </th:block>
+       </tbody>
+   </table>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#Patient_Details tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+</body>
+</html>
+<!--Hier moet er nog add optie komen en save optie en de P_detailsForm.html moet ook gemaakt worden-->

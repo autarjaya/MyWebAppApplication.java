@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid ">
+   <div class="text-center"> <h2>[[${pageTitle}]]</h2></div>
+<form th:action="@{/users/save}" method="post" th:object="${user}"
+      style="max-width: 700px; margin: 0 auto">
+    <input type="hidden" th:field="*{id}">
+    <div class="border border-secondary rounded p-3">
+
+
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Voornaam</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{firstName}" class="form-control" required minlength="2" maxlength="45"/>
+                </div>
+            </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Achternaam</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{lastName}" class="form-control" required minlength="2" maxlength="45"/>
+            </div>
+    </div>
+
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Geboortedatum</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{geboorteDatum}" class="form-control" required minlength="2" maxlength="45"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Telefoonnr.</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{phonenumber}" class="form-control" required minlength="5" maxlength="15"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Adres</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{address}" class="form-control" required minlength="5" maxlength="25"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Verzekeringsmaatschappij</label>
+           <div class="col-sm-8">
+              <!-- <input type="text" th:field="*{company}" class="form-control" required minlength="5" maxlength="15"/>-->
+               <div class="input-group mb-3">
+                   <div class="input-group-prepend">
+                       <label class="input-group-text" for="inputGroupSelect01">Input</label>
+                   </div>
+
+                   <select class="custom-select" th:field="*{company}" id="inputGroupSelect01" >
+                    <option value ="Choose....">Choose</option>
+                       <option value="SZF" >SZF</option>
+                       <option value="Assuria" >Assuria</option>
+                       <option value="Self Reliance" >Self Reliance</option>
+                   </select>
+               </div>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Verzkeringsnr.</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{assuranceNr}" class="form-control" required minlength="2" maxlength="45" />
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Laatst bezocht</label>
+            <div class="col-sm-8">
+                <input type="date" th:field="*{lastVisited}" class="form-control" required minlength="5" maxlength="15"/>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary m-2">Opslaan</button>
+            <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Annuleren</button>
+        </div>
+        </div>
+</form>
+</div>
+<script type="text/javascript">
+    function cancelForm(){
+        window.location="[[@{/users}]]";
+
+    }
+</script>
+</body>
+</html>

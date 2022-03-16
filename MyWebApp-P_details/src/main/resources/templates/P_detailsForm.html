@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+
+
+
+<body>
+<div class="container-fluid">
+    <div class="text-center">
+        <h2>[[${pageTitle}]]</h2></div>
+    <form th:action="@{/P_details/save}" method="post" th:object="${p_details}"
+    style="max-width: 500px;margin: 0 auto">
+
+        <input type="hidden" th:field="*{id}">
+        <div class="border border-secondary rounded p-3">
+           <!-- <div class="form-group row">
+                <label class="col-sm-4 col-form-label">ID </label>
+                <div class="col-sm-8">
+                    <input type="number" th:field="*{id}" class="form-control" required minlength="1" maxlength="100"/>
+                </div>
+
+            </div>
+
+            Ishita -->
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">P_id</label>
+                <div class="col-sm-8">
+                    <input type="number" th:field="*{p_id}" class="form-control" required minlength="1" maxlength="100"/>
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Naam</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{naam}" class="form-control" required minlength="1" maxlength="20"/>
+                </div>
+
+            </div>
+<!-- t/m hier -->
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Bezocht op </label>
+                <div class="col-sm-8">
+
+                    <input type="date" th:field="*{date}" class="form-control" required minlength="5" maxlength="15"/>
+
+
+                </div>
+
+            </div>
+
+
+
+          <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Reden bezoek </label>
+                <div class="col-sm-8">
+
+                    <input type="text" th:field="*{sickness}" class="form-control" required minlength="2" maxlength="50"/>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Voorgeschreven</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{medicine}" class="form-control" required minlength="5" maxlength="20"/>
+                </div>
+
+            </div>
+
+            <div class="text-center">
+                <!--<div th:if="${param.error}">
+                    Patient met deze id bestaat niet.
+                </div>
+              ik probeerde dit weer te geven bij die error page, maar lukt niet   -->
+
+
+                <button type="submit" class="btn btn-primary m-2">Opslaan</button><!-- Save button geeft error.Bij input van sickness herkend het niet als een waarde,waardoor het steeds null aangeeft-->
+                <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Annuleren</button>
+
+            </div>
+        </div>
+
+
+
+
+
+    </form>
+</div>
+
+
+
+<script type="text/javascript">
+    function cancelForm(){
+        window.location="[[@{/P_details}]]";
+
+    }
+</script>
+</body>
+</html>

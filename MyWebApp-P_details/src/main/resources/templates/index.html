@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to My Application</title>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.pinterest.com/pin/740842207448478226/">
+
+
+</head>
+
+<!--<div class="container-fluid text-center bg-light">
+<h1>Welcome to My Application!!</h1>
+<a class="h2" th:href="@{/users}">Manage Users</a>
+</div>-->
+
+
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+    body, html {
+        height: 100%;
+        line-height: 1.8;
+    }
+    /* Full height image header */
+   .img_1 {
+        background-image:url('https://media.istockphoto.com/photos/stethoscope-or-phonendoscope-on-a-doctors-white-desk-on-cloudy-of-picture-id1137049930?k=20&m=1137049930&s=612x612&w=0&h=9qB1a3sZJ_1BwjXbH-jzN8j4woMgrU-351pGzJFM5tM=');
+         background-position: center;
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover;
+
+
+       background-size: 100% 100%;
+
+       min-height:100%;
+
+    }
+    /* Create three equal columns that floats next to each other */
+    .column {
+
+        float: left;
+        width: 33.33%;
+        padding: 50px;
+
+
+
+
+
+
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+</style>
+
+<!-- Navigatiebar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="#home" class="w3-bar-item w3-button w3-wide">Startpagina</a>
+        <i class="fa fa-stethoscope fa-fw w3-xxlarge"></i></i>
+
+        <!-- Right-sided navbar links (rechterkant navigatiebar)-->
+        <div class="w3-right w3-hide-small">
+
+            <a th:href="@{covid-19}" class="w3-bar-item w3-button">COVID-19</a>
+            <a href="#about" class="w3-bar-item w3-button">OVER</a>
+            <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+            <a th:href="@{/users}" class="w3-bar-item w3-button">LOGIN</a>
+            <br>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Hide right-floated links on small screens and replace them with a menu icon -->
+<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+    <i class="fa fa-bars"></i>
+</a>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+    <a href="#covid-19" onclick="w3_close()" class="w3-bar-item w3-button">COVID-19</a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-- Header with full-height image -->
+
+<header class="img_1 w3-display-container w3-grayscale-min" id="home">
+
+
+
+    <p class="w3-center  w3-text-black" style="padding:52px">
+        <b><i style="font-family: 'sans-serif'" class=" w3-jumbo ">HUISARTSKLINIEK Drs. Harpal R.</i></b></p>
+    <b><i><p class=" w3-center w3-xlarge">It is health which is real wealth, and not pieces of gold and silver ~ Mahatma Gandhi</p></i> </b><br> <br><br><br><br>
+        <!-- i staat voor italic-->
+   <h4 class="w3-margin-left"> <b>Mededelingen</h4></b>
+
+        <h6 class="w3-margin-left">Vervanger indien de arts afwezig is : Drs. Ramdat I.<br>
+            Adres: Wanicaweg #123<br>
+            Telefoon: +597 7659342<br></h6>
+
+    </div>
+</header>
+
+
+
+
+
+<!-- About Section -->
+
+
+
+<!--Kolommen geplaatst-->
+<br>
+<div class="row" style="padding:100px;background-image: url('https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
+    <div class="column" style="background-color:darkcyan;color: white; border-radius:100px;height:350px">
+        <h2><b>Hart- en vaatziekten</b></h2>
+        <p>Hart- en vaatziekten zijn vandaag de dag nog steeds de belangrijkste doodsoorzaak en invaliditeit in de wereld. Hart- en vaatziekten zijn ook in Suriname doodsoorzaak nummer één.</p>
+        <a  th:href="@{/Ziekte1}" class="w3-bar-item w3-button" style="color: white; font-size:150%"><b>Meer Lezen</b></a>
+    </div>
+    <div class="column" style="background-color:darkcyan;color: white; border-radius:100px;height:350px">
+        <h2><b>Diabetes</b></h2>
+        <p> Diabetes, suikerziekte, is een ziekte waarbij het lichaam de bloedsuiker niet meer in evenwicht kan houden. Dat komt doordat het lichaam te weinig van het hormoon insuline heeft.  </p>
+        <a  th:href="@{/Ziekte2}" class="w3-bar-item w3-button" style="color: white; font-size:150%"><b>Meer Lezen</b></a>
+    </div>
+    <div class="column" style="background-color:darkcyan;color: white;border-radius:100px;height:350px">
+        <h2><b>Hoge bloeddruk</b></h2>
+        <p>Een hoge bloeddruk verhoogt de kans op een hartinfarct, beroerte en hartfalen. Lees meer over de klachten, oorzaken en gevolgen van een hoge bloeddruk.  </p> <br>
+        <a  th:href="@{/Ziekte3}" class="w3-bar-item w3-button" style="color: white; font-size:150%"><b>Meer Lezen</b></a>
+    </div>
+</div>
+
+<br>
+
+
+
+<div class="w3-container" style="background-color: darkcyan;padding:100px 10px" id="about">
+    <h3 class="w3-center">OVER DE KLINIEK</h3>
+    <h3 class="w3-center w3-large">Huisarts of huisdokter is een arts die meestal niet in een ziekenhuis werkt.
+        In het algemeen wordt de huisarts door mensen met gezondheidsproblemen in de ruimste zin als eerste aangesproken.
+        De huisarts is zodoende de medisch specialist met als vak generalisme.
+        Een huisarts is het eerste aanspreekpunt voor problemen met de gezondheid van de patiënten en houdt overzicht over de totale situatie van de patiënt.
+        Een huisarts kent de patiënten vaak al jaren. Door een veelzijdige medische kennis kunnen veel gepresenteerde klachten zelf behandeld worden.
+        Voor de overige klachten wordt de patiënt doorverwezen naar een medisch specialist of andere hulpverlener.</h3>
+    <h3 class="w3-center w3-large">Het polikliniek is opegricht in het jaar 2010 door Drs. Harpal R., geboren in het jaar 1980.
+        Momenteel zijn er twee zusters aanwezig voor assistentie.</h3>
+
+    <div class="w3-row-padding w3-center" style="margin-top:64px"></div>
+</div>
+
+
+
+<!-- Contact Section -->
+<br>
+<div class="w3-container " style="background-image:linear-gradient(lightseagreen,white);padding:60px 10px" id="contact">
+    <h3 class="w3-center">CONTACT</h3>
+    <div style="margin-top:48px">
+
+        <!-- <b><h4 class="w3-center">Mededelingen</h4></b>
+         <h6 class="w3-center">Vervanger indien de arts afwezig is : Drs. Ramdat I.<br>
+             Adres: Wanicaweg #123
+             Telefoon: +597 7659342</h6><br>-->
+
+
+        <b><h4 class="w3-center">Spreekuren</h4></b>
+        <h6 class="w3-center">Ma.-Vrij.: 8.00 - 10.00 u. ochtend<br>
+            Ma.-Vrij.:16.00 - 18.00 u. middag<br>
+            Za.: 8.00-10.00 u.<br>
+
+            <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Kwattaweg #23, Paramaribo, Suriname</p>
+            <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Telefoon: +597 8760897  - +597 450997</p>
+            <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: huisartskliniekDrs.@gmail.com</p>
+        </h6> <br>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+
+    <script>
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+
+        // Toggle between showing and hiding the sidebar when clicking the menu icon
+        var mySidebar = document.getElementById("mySidebar");
+
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+            } else {
+                mySidebar.style.display = 'block';
+            }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+        }
+    </script>
+</footer>
+</body>
+</html>
