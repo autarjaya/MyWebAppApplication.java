@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Anamnese</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="w3-top"><br>
+    <button class="w3-btn w3-rectangular w3-blue w3-ripple" >
+        <a th:href="@{users}" style="text-decoration: none">Terug naar de vorige pagina  </a>
+    </button>
+</div><br>
+
+<div class="container-fluid text-center">
+    <div> <h2 style="font-family:'Lucida Handwriting'">Anamnese Patiënten</h2></div>
+    <br>
+    <div class="m-2">
+        <a class="h3" th:href="@{/Anamnese/new}">Nieuwe anamnese toevoegen</a>
+    </div>
+   <!-- </div> -->
+    <div>
+        <input class="form-control" id="myInput" type="text" placeholder="Zoeken ...">
+
+        <br>
+        <table class="table table-bordered">
+            <col style="width:2%">
+            <col style="width:5%">
+            <col style="width:15%">
+            <col style="width:12%">
+            <col style="width:35%">
+            <thead class="thead-dark">
+
+            <tr>
+
+                <th>P_id</th>
+                <th>Lengte</th>
+                <th>Gewicht</th>
+                <th>BMI</th>
+                <th>Aandoening</th>
+                <th>Erfelijke ziekten</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id="Anamnese">
+            <th:block th:each="anamnese : ${listAnamnese}">
+                <tr>
+                    <td>[[${anamnese.p_id}]]</td>
+                    <td>[[${anamnese.lengte}]]</td>
+                    <td>[[${anamnese.gewicht}]]</td>
+                    <td>[[${anamnese.BMI}]]</td>
+                    <td>[[${anamnese.aandoening}]]</td>
+                    <td>[[${anamnese.erfelijke_ziekten}]]</td>
+                    <td>
+
+                        <a class="h4 mr-3" th:href="@{'/Anamnese/edit/' + ${anamnese.id}}">Bewerken</a><!--Edit en delete nog niet klaar-->
+                        <a class="h4"  th:href="@{'/Anamnese/delete/' + ${anamnese.id}}">Verwijderen</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#Anamnese tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+</div>
+</body>
+</html>
+<!--Hier moet er nog add optie komen en save optie en de P_detailsForm.html moet ook gemaakt worden-->

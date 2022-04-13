@@ -23,7 +23,7 @@
     <div class="m-2">
         <a class="h3" th:href="@{/P_details/new}">Nieuwe info patiënt toevoegen</a>
     </div>
-    </div>
+
 <div>
     <input class="form-control" id="myInput" type="text" placeholder="Zoeken ...">
 
@@ -31,8 +31,8 @@
    <table class="table table-bordered">
        <thead class="thead-dark">
        <tr>
-           <th></th>
-           <th>Naam</th>
+
+           <th>Achternaam</th>
            <th>P_id</th>
            <th>Bezocht op</th>
            <th>Reden bezoek</th>
@@ -43,7 +43,7 @@
        <tbody id="Patient_Details">
        <th:block th:each="p_details : ${listP_details}">
            <tr>
-               <td>[[${p_details.id}]]</td>
+
                <td>[[${p_details.naam}]]</td>
                <td>[[${p_details.p_id}]]</td>
                <td>[[${p_details.date}]]</td>
@@ -70,6 +70,7 @@
         });
     });
 </script>
+</div>
 </body>
 </html>
 <!--Hier moet er nog add optie komen en save optie en de P_detailsForm.html moet ook gemaakt worden-->

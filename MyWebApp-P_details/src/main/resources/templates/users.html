@@ -33,8 +33,25 @@
         <p align="center">
             <a class="h4 text-xl-center" th:href="@{P_details}">Meer info over patiënten</a>
         </div>
-        </p>
+
+    <div class="m-2">
+        <p align="center">
+            <a class="h4 text-xl-center" th:href="@{Labresults}">Resultaten patiënten</a>
     </div>
+
+    <div class="m-2">
+        <p align="center">
+            <a class="h4 text-xl-center" th:href="@{Anamnese}">Anamnese patiënten</a>
+    </div>
+
+
+    <div class="m-2">
+        <p align="center">
+            <a class="h4 text-xl-center" th:href="@{Appointments}">Afspraken patiënten</a>
+    </div>
+
+        </p>
+
 
     </div>
     <div th:if="${message}" class="alert alert-success text-center">
@@ -104,6 +121,6 @@
             });
         });
     </script>
-
+</div>
 </body>
 </html>
