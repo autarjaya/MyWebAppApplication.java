@@ -4592,7 +4592,6 @@ SELECT|sys.sys_config
     <column id="1119" parent="365" name="naam">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="1120" parent="365" name="result">
       <Position>4</Position>
@@ -4643,7 +4642,6 @@ SELECT|sys.sys_config
     <column id="1129" parent="366" name="naam">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="1130" parent="366" name="medicine">
       <Position>6</Position>

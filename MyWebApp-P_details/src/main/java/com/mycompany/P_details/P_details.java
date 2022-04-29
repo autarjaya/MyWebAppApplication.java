@@ -61,7 +61,7 @@ public class P_details {
         this.naam = naam;
     }
 
-    @Column(name = "Naam",nullable = false)
+    @Column(name = "Naam")
     private String naam;
 
     public Integer getId() {

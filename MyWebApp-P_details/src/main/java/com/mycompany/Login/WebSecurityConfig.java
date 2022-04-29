@@ -17,19 +17,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/index","/covid-19","/Ziekte1","/Ziekte2","/Ziekte3").permitAll()
-
-                    .anyRequest().authenticated()
-                    .and()
+                .antMatchers("/", "/index","/covid-19","/Ziekte1","/Ziekte2","/Ziekte3").permitAll()
+                .anyRequest().authenticated()
+                .and()
                 .formLogin()
-                    .loginPage("/login")
-                    .permitAll()
-                    .and()
+                .loginPage("/login")
+                .permitAll()
+                .and()
                 .logout()
                 .logoutSuccessUrl("/index")
-                    .permitAll();
-    }
+                .permitAll()//
+                /*vanaf regel 31 t/m 35 is geplaatst voor iframe optie */
+                .and()
+                .headers()
+                .frameOptions()
+                .sameOrigin();
 
+    }
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
@@ -37,10 +41,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 User.withDefaultPasswordEncoder()
                         .username("user")
                         .password("password")
-                       .roles("USER")
+                        .roles("USER")
                         .build();
-
-
         return new InMemoryUserDetailsManager(user);
     }
 }
